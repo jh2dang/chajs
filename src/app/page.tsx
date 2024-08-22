@@ -1,6 +1,7 @@
 import Search from './(Search)/page'
 import Category from './(Category)/page'
 import Banner from './(Banner)/page'
+import Coupon from './(Coupon)/page'
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <Search />
       <Category />
       <Banner />
+      <Coupon />
     </div>
   )
 }

@@ -1,3 +1,5 @@
+'use client'
+
 import React, {
   ComponentPropsWithRef,
   useCallback,
@@ -6,7 +8,7 @@ import React, {
 } from 'react'
 import { EmblaCarouselType } from 'embla-carousel'
 
-type UsePrevNextButtonsType = {
+interface UsePrevNextButtonsType {
   prevBtnDisabled: boolean
   nextBtnDisabled: boolean
   onPrevButtonClick: () => void
@@ -51,7 +53,7 @@ export const usePrevNextButtons = (
 
 type PropType = ComponentPropsWithRef<'button'>
 
-export const PrevButton: React.FC<PropType> = (props) => {
+export function PrevButton(props: PropType) {
   const { children, ...restProps } = props
 
   return (
@@ -71,7 +73,7 @@ export const PrevButton: React.FC<PropType> = (props) => {
   )
 }
 
-export const NextButton: React.FC<PropType> = (props) => {
+export function NextButton(props: PropType) {
   const { children, ...restProps } = props
 
   return (

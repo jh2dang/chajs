@@ -5,17 +5,24 @@ import useEmblaCarousel from 'embla-carousel-react'
 import Image, { StaticImageData } from 'next/image'
 import chevron_right from '../../public/icons/chevron_right.png'
 
-type BannerType = {
+interface Card {
   image: StaticImageData
   title: string
+  catrgory: string
+  description: string
+  endDate: string
+  case: string
+  quantity: number
+  isRecieved: boolean
+  isEnded: boolean
 }
 
-type PropType = {
-  slides: BannerType[]
+interface PropType {
+  slides: Card[]
   options?: EmblaOptionsType
 }
 
-const Carousel: React.FC<PropType> = (props) => {
+export default function CarouselCoupon(props: PropType) {
   const { slides, options } = props
   const [emblaRef, emblaApi] = useEmblaCarousel(options)
 
@@ -55,5 +62,3 @@ const Carousel: React.FC<PropType> = (props) => {
     </section>
   )
 }
-
-export default Carousel
