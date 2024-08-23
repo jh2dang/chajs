@@ -26,7 +26,7 @@ export default function RootLayout({
       <body className={`${pretendard.className} flex justify-center`}>
         <div className="w-[390px] h-[844px] flex flex-col">
           <Header />
-          <main className="flex-grow">{children}</main>
+          <main>{children}</main>
           <Footer />
         </div>
       </body>
