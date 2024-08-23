@@ -1,6 +1,6 @@
 'use client'
 
-import CarouselBanner from '../../components/CarouselBanner'
+import CarouselBanner from './Carousel'
 import { useDummyDataStore } from '@/store/useDummyDataStore'
 import { EmblaOptionsType } from 'embla-carousel'
 

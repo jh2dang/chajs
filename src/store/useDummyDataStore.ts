@@ -42,9 +42,16 @@ interface DummyDataState {
   categories: Data[]
   banners: Data[]
   coupons: Card[]
+  setIsRecieved: (title: string) => void
 }
 
-export const useDummyDataStore = create<DummyDataState>(() => ({
+export const useDummyDataStore = create<DummyDataState>((set) => ({
+  setIsRecieved: (title: string) =>
+    set((state) => ({
+      coupons: state.coupons.map((coupon) =>
+        coupon.title === title ? { ...coupon, isRecieved: true } : coupon,
+      ),
+    })),
   categories: [
     { image: truck, title: '이사/청소' },
     { image: build_fill, title: '설치/수리' },
@@ -79,7 +86,7 @@ export const useDummyDataStore = create<DummyDataState>(() => ({
       title: '잭슨피자 광안리점',
       category: '피자',
       description: '오븐스파게티 증정',
-      endDate: '-',
+      endDate: '',
       case: '리뷰작성 시',
       quantity: 25,
       isRecieved: false,
@@ -109,7 +116,7 @@ export const useDummyDataStore = create<DummyDataState>(() => ({
     },
     {
       image: coupon1,
-      title: '하우스멜2',
+      title: '22 하우스멜2',
       category: '카페·디저트',
       description: '소금빵 증정',
       endDate: '2024년 05월 31일까지',
@@ -120,10 +127,10 @@ export const useDummyDataStore = create<DummyDataState>(() => ({
     },
     {
       image: coupon2,
-      title: '잭슨피자 광안리점2',
+      title: '22 잭슨피자 광안리점2',
       category: '피자',
       description: '오븐스파게티 증정',
-      endDate: '-',
+      endDate: '',
       case: '리뷰작성 시',
       quantity: 25,
       isRecieved: false,
@@ -131,7 +138,7 @@ export const useDummyDataStore = create<DummyDataState>(() => ({
     },
     {
       image: coupon3,
-      title: '오만원더통신2',
+      title: '22 오만원더통신2',
       category: '인터넷가입',
       description: '사은품 추가 증정',
       endDate: '2024년 05월 31일까지',
@@ -142,7 +149,7 @@ export const useDummyDataStore = create<DummyDataState>(() => ({
     },
     {
       image: coupon4,
-      title: '이가요리족보야 경성대본점2',
+      title: '22 이가요리족보야 경성대본점2',
       category: '족발·보쌈',
       description: '탄산음료 1병 무료',
       endDate: '2024년 05월 31일까지',
@@ -153,7 +160,7 @@ export const useDummyDataStore = create<DummyDataState>(() => ({
     },
     {
       image: coupon1,
-      title: '하우스멜3',
+      title: '33 하우스멜3',
       category: '카페·디저트',
       description: '소금빵 증정',
       endDate: '2024년 05월 31일까지',
@@ -164,10 +171,10 @@ export const useDummyDataStore = create<DummyDataState>(() => ({
     },
     {
       image: coupon2,
-      title: '잭슨피자 광안리점3',
+      title: '33 잭슨피자 광안리점3',
       category: '피자',
       description: '오븐스파게티 증정',
-      endDate: '-',
+      endDate: '',
       case: '리뷰작성 시',
       quantity: 25,
       isRecieved: false,
@@ -175,7 +182,7 @@ export const useDummyDataStore = create<DummyDataState>(() => ({
     },
     {
       image: coupon3,
-      title: '오만원더통신3',
+      title: '33 오만원더통신3',
       category: '인터넷가입',
       description: '사은품 추가 증정',
       endDate: '2024년 05월 31일까지',
@@ -186,7 +193,7 @@ export const useDummyDataStore = create<DummyDataState>(() => ({
     },
     {
       image: coupon4,
-      title: '이가요리족보야 경성대본점3',
+      title: '33 이가요리족보야 경성대본점3',
       category: '족발·보쌈',
       description: '탄산음료 1병 무료',
       endDate: '2024년 05월 31일까지',
@@ -197,7 +204,7 @@ export const useDummyDataStore = create<DummyDataState>(() => ({
     },
     {
       image: coupon1,
-      title: '하우스멜4',
+      title: '44 하우스멜4',
       category: '카페·디저트',
       description: '소금빵 증정',
       endDate: '2024년 05월 31일까지',
@@ -208,10 +215,10 @@ export const useDummyDataStore = create<DummyDataState>(() => ({
     },
     {
       image: coupon2,
-      title: '잭슨피자 광안리점4',
+      title: '44 잭슨피자 광안리점4',
       category: '피자',
       description: '오븐스파게티 증정',
-      endDate: '-',
+      endDate: '',
       case: '리뷰작성 시',
       quantity: 25,
       isRecieved: false,
@@ -219,7 +226,7 @@ export const useDummyDataStore = create<DummyDataState>(() => ({
     },
     {
       image: coupon3,
-      title: '오만원더통신4',
+      title: '44 오만원더통신4',
       category: '인터넷가입',
       description: '사은품 추가 증정',
       endDate: '2024년 05월 31일까지',
@@ -230,7 +237,7 @@ export const useDummyDataStore = create<DummyDataState>(() => ({
     },
     {
       image: coupon4,
-      title: '이가요리족보야 경성대본점4',
+      title: '44 이가요리족보야 경성대본점4',
       category: '족발·보쌈',
       description: '탄산음료 1병 무료',
       endDate: '2024년 05월 31일까지',
@@ -241,7 +248,7 @@ export const useDummyDataStore = create<DummyDataState>(() => ({
     },
     {
       image: coupon1,
-      title: '하우스멜5',
+      title: '55 하우스멜5',
       category: '카페·디저트',
       description: '소금빵 증정',
       endDate: '2024년 05월 31일까지',
@@ -252,10 +259,10 @@ export const useDummyDataStore = create<DummyDataState>(() => ({
     },
     {
       image: coupon2,
-      title: '잭슨피자 광안리점5',
+      title: '55 잭슨피자 광안리점5',
       category: '피자',
       description: '오븐스파게티 증정',
-      endDate: '-',
+      endDate: '',
       case: '리뷰작성 시',
       quantity: 25,
       isRecieved: false,
@@ -263,7 +270,7 @@ export const useDummyDataStore = create<DummyDataState>(() => ({
     },
     {
       image: coupon3,
-      title: '오만원더통신5',
+      title: '55 오만원더통신5',
       category: '인터넷가입',
       description: '사은품 추가 증정',
       endDate: '2024년 05월 31일까지',
@@ -274,7 +281,7 @@ export const useDummyDataStore = create<DummyDataState>(() => ({
     },
     {
       image: coupon4,
-      title: '이가요리족보야 경성대본점5',
+      title: '55 이가요리족보야 경성대본점5',
       category: '족발·보쌈',
       description: '탄산음료 1병 무료',
       endDate: '2024년 05월 31일까지',

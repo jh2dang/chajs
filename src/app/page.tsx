@@ -1,15 +1,17 @@
-import Search from './(Search)/page'
-import Category from './(Category)/page'
-import Banner from './(Banner)/page'
-import Coupon from './(Coupon)/page'
+import Search from './(Search)/Search'
+import Category from './(Category)/Category'
+import Banner from './(Banner)/Banner'
+import Coupon from './(Coupon)/Coupon'
+import Privacy from './(Privacy)/Privacy'
 
 export default function Home() {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col pt-[56px] pb-[83px]">
       <Search />
       <Category />
       <Banner />
       <Coupon />
+      <Privacy />
     </div>
   )
 }

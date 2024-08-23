@@ -1,28 +1,21 @@
 import React from 'react'
 import { EmblaOptionsType } from 'embla-carousel'
-import { usePrevNextButtons } from './CarouselArrow'
+import { usePrevNextButtons } from '../../components/CarouselArrow'
 import useEmblaCarousel from 'embla-carousel-react'
 import Image, { StaticImageData } from 'next/image'
-import chevron_right from '../../public/icons/chevron_right.png'
+import chevron_right from '../../../public/icons/chevron_right.png'
 
-interface Card {
+interface BannerType {
   image: StaticImageData
   title: string
-  catrgory: string
-  description: string
-  endDate: string
-  case: string
-  quantity: number
-  isRecieved: boolean
-  isEnded: boolean
 }
 
 interface PropType {
-  slides: Card[]
+  slides: BannerType[]
   options?: EmblaOptionsType
 }
 
-export default function CarouselCoupon(props: PropType) {
+export default function CarouselBanner(props: PropType) {
   const { slides, options } = props
   const [emblaRef, emblaApi] = useEmblaCarousel(options)
 
@@ -41,7 +34,7 @@ export default function CarouselCoupon(props: PropType) {
               <img
                 src={slide.image.src}
                 alt={slide.title}
-                className="w-[335px] h-[125px]"
+                className="w-[335px] h-[125px] cursor-pointer"
               />
               {/* TODO: 현재 슬라이드에만 인덱스 보이도록 */}
               <div className="absolute bottom-0 right-[5px] bg-[rgba(48,52,65,0.75)] w-[60px] h-6 rounded-tl-lg rounded-br-lg flex justify-center items-center pl-1">
