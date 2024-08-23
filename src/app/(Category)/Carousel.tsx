@@ -7,6 +7,7 @@ import CategoryBadge from './Badge'
 export default function CategoryCarousel() {
   const categories = useDummyDataStore((state) => state.categories)
 
+  // 스와이프 기능
   const carouselRef = useRef<HTMLDivElement>(null)
 
   const handleMouseDown = (e: React.MouseEvent) => {
@@ -18,7 +19,7 @@ export default function CategoryCarousel() {
 
     const handleMouseMove = (event: MouseEvent) => {
       const x = event.pageX - carousel.offsetLeft
-      const walk = (x - startX) * 1.5 // 스크롤 속도 조정
+      const walk = (x - startX) * 1.5
       carousel.scrollLeft = scrollLeft - walk
     }
 
@@ -33,11 +34,11 @@ export default function CategoryCarousel() {
 
   return (
     <div
-      className="overflow-x-auto cursor-grab active:cursor-grabbing"
+      className="overflow-x-auto"
       ref={carouselRef}
       onMouseDown={handleMouseDown}
     >
-      <div className="flex flex-row flex-wrap pl-4 w-[450px] gap-x-[5px] gap-y-[10px]">
+      <div className="flex flex-row flex-wrap pl-4 w-[450px] gap-x-[5px] gap-y-[10px] cursor-pointer">
         {categories.map((category, index) => (
           <CategoryBadge
             key={index}
